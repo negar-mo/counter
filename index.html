@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Auto Counter</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    #counter {
+      font-size: 3em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Counter</h1>
+  <div id="counter"></div>
+
+  <script>
+    // Start date (when to begin counting Mondays/Wednesdays)
+    const startDate = new Date("2025-09-01");
+
+    // End date (Dec 3, 2025)
+    const endDate = new Date("2025-12-03");
+
+    let count = 0;
+
+    // Loop through dates from startDate to endDate
+    for (let d = new Date(startDate); d <= endDate; d.setDate(d.getDate() + 1)) {
+      if (d.getDay() === 1 || d.getDay() === 3) { // Monday=1, Wednesday=3
+        count++;
+      }
+    }
+
+    // Subtract 2 as requested
+    count = count - 2;
+
+    document.getElementById("counter").textContent = count;
+  </script>
+</body>
+</html>
